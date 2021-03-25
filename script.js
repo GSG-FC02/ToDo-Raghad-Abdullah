@@ -37,3 +37,15 @@ itemsArray.forEach(function(item){
 
 // Add end
 
+// Delete start 
+
+function del(event){
+    let value = event.target.parentNode.parentNode.firstChild.textContent
+    itemsArray.splice(itemsArray.indexOf(value), 1); 
+    localStorage.setItem('items',JSON.stringify(itemsArray))
+    event.target.parentNode.parentNode.remove()
+    window.location.reload()
+}
+
+// Delete End 
+
