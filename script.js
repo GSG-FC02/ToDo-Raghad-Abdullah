@@ -52,7 +52,9 @@ function add(text) {
     subDiv2.appendChild(subButton1)
     subDiv2.appendChild(subButton2)
     document.querySelector(".app-container").appendChild(containerDiv)
+    
    }
+
 itemsArray.forEach(function(item){
     add(item)
 });
