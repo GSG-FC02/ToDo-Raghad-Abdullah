@@ -20,6 +20,7 @@ function add(text){
         let containerText = document.createTextNode(text);
         let del = document.createTextNode("delete");
         subButton1.setAttribute("onclick","del(event)")
+        subButton2.setAttribute("onclick","edit(event)")
         let edit = document.createTextNode("edit");
         toDo.appendChild(containerText)
         subButton1.appendChild(del)
@@ -48,4 +49,26 @@ function del(event){
 }
 
 // Delete End 
+
+
+//  edit start
+function edit(event){
+    let value = event.target.parentNode.parentNode.firstChild.textContent
+    window.value = value
+    event.target.parentNode.parentNode.firstChild.firstChild.setAttribute("contenteditable","true")
+    let check = document.createElement("i")
+    event.target.parentNode.parentNode.firstChild.appendChild(check)
+    check.setAttribute("class","fas fa-check")
+    check.setAttribute("onclick","submit(event)")
+}
+function submit (event){
+    event.target.parentNode.parentNode.firstChild.firstChild.setAttribute("contenteditable","false")
+    text = event.target.parentNode.parentNode.firstChild.textContent
+    itemsArray.splice(itemsArray.indexOf(value), 1,text); 
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+    console.log(value)
+    event.target.remove()
+    }
+    
+// edit end
 
